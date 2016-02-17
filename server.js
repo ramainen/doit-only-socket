@@ -72,8 +72,7 @@ app.post('/emit', function (req, res) {
 			if(typeof(req.param('data'))=='undefined'){
 				query = {};
 			}else{
-				//query = JSON.parse(req.param('data'));
-				query = (req.param('data'));
+				query = JSON.parse(req.param('data'));
 			}
 			io.to(clients[client_key]).emit(query_message, query);
 
